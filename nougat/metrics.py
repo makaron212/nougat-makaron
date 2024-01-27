@@ -19,9 +19,9 @@ from tqdm import tqdm
 
 import orjson
 
-inline_reg = re.compile(r"\\\((.*?)(?<!\\)\\\)")
-display_reg = re.compile(r"\\\[(.+?)(?<!\\)\\\]")
-table_reg = re.compile(r"\\begin\{tabular\}(.+?)(?:\\end\{tabular\}|$)", re.S)
+inline_reg = re.compile(r"\$(.*?)\$")
+display_reg = re.compile(r"\$\$(.+?)\$\$")
+table_reg = re.compile(r"(\|.+?\|[\r\n])")
 
 
 def compute_metrics(pred, gt, minlen=4):
